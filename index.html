@@ -73,7 +73,7 @@
             overflow-x: hidden;
         }
 
-        /* ЕФЕКТ НАКЛАДАННЯ СТОРІНОК (Повернуто як було) */
+        /* ЕФЕКТ НАКЛАДАННЯ СТОРІНОК */
         .stack-wrapper { position: relative; }
         .stack-section {
             position: sticky; top: 0; min-height: 100svh; display: flex;
@@ -90,17 +90,23 @@
                 justify-content: flex-start; box-shadow: none;
                 margin-bottom: 0;
             }
+            #sec-hero {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
         }
 
         /* Z-index */
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        /* Секція CTA теж може бути на весь екран */
-        #sec-cta {
-             min-height: 100svh;
-        }
+        #sec-hero { z-index: 10; }
+        #sec-about { z-index: 9; }
+        #sec-pain { z-index: 8; }
+        #sec-results { z-index: 7; }
+        #sec-map { z-index: 6; }
+        #sec-edu { z-index: 5; }
+        #sec-reviews { z-index: 4; }
+        #sec-faq { z-index: 3; }
+        #sec-pricing { z-index: 2; }
+        #sec-cta { z-index: 1; }
 
         /* Мітки над заголовками */
         .section-label {
@@ -109,6 +115,7 @@
             display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 0.5rem;
         }
 
+        /* Глобальні стилі заголовків */
         h1, h2, h3 { text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; color: #1A1A1A; }
         .dark-section h1, .dark-section h2, .dark-section h3, .dark-section p, .dark-section .section-label { color: #FAF9F6; }
 
@@ -142,13 +149,14 @@
         </div>
     </nav>
 
-    <!-- Обгортка тепер має звичайний display: flex -->
+    <!-- Обгортка -->
     <div class="stack-wrapper">
 
         <!-- 1. HERO (ФОНОВЕ ВІДЕО 1) -->
         <section id="sec-hero" class="stack-section relative bg-theme-darker dark-section overflow-hidden">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-80">
-                <source src="IMG_9843.MOV" type="video/mp4">
+            <!-- Виправлено автоплей для мобільних та змінено на mp4 -->
+            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 opacity-80">
+                <source src="IMG_9843.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-gradient-to-r from-[#1A1A1A]/80 to-[#1A1A1A]/40 z-0"></div>
             
@@ -221,9 +229,9 @@
 
         <!-- 4. РЕЗУЛЬТАТИ (ФОНОВЕ ВІДЕО 3) -->
         <section id="sec-results" class="stack-section relative bg-theme-darker dark-section overflow-hidden text-theme-bg">
-            <!-- Фонове відео 3 -->
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-80">
-                <source src="IMG_9842.MOV" type="video/mp4">
+            <!-- Виправлено автоплей для мобільних та змінено на mp4 -->
+            <video autoplay loop muted playsinline webkit-playsinline disablePictureInPicture preload="auto" class="absolute inset-0 w-full h-full object-cover z-0 opacity-80">
+                <source src="IMG_9842.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-[#1A1A1A]/60 z-0"></div>
 
@@ -313,7 +321,6 @@
                 <div class="flex flex-col md:flex-row justify-between items-end mb-10">
                     <div data-aos="fade-right">
                         <div class="section-label text-theme-accent border-theme-accent">06 — кваліфікація</div>
-                        <!-- Назву повернуто на ДИПЛОМИ -->
                         <h2 class="font-display text-4xl sm:text-5xl font-black text-theme-darker">ДИПЛОМИ</h2>
                     </div>
                     <div class="mt-4 md:mt-0 font-display text-lg sm:text-xl font-bold text-theme-dark" data-aos="fade-left">Додаткове навчання</div>
@@ -490,9 +497,8 @@
                     <!-- ХІТ -->
                     <div class="bg-theme-darker text-theme-bg p-6 sm:p-8 flex flex-col transform lg:-translate-y-4 shadow-2xl relative rounded-sm" data-aos="fade-up" data-aos-delay="200">
                         <div class="absolute top-0 right-0 bg-theme-accent text-white font-display text-[10px] px-4 py-1.5 uppercase font-bold tracking-widest">Хіт</div>
-                        <!-- Назва стала 100% помітною та білою (додано !text-white для найвищого пріоритету) -->
+                        <!-- Назва стала 100% помітною та білою завдяки !text-white -->
                         <h3 class="font-display text-2xl sm:text-3xl font-black mb-3 !text-white drop-shadow-sm">КАРТА ПСИХІКИ</h3>
-                        <!-- Оновлено опис -->
                         <p class="text-white/80 text-xs sm:text-sm mb-6 min-h-[3rem]">Пакет із 5 сесій. Глибока сесія + візуальна схема (mind-map). Вартість вказана за одну консультацію.</p>
                         <div class="font-display text-3xl font-black mb-6 whitespace-nowrap text-white">1&nbsp;800&nbsp;₴ <span class="text-sm font-sans font-normal text-white/60">/ сесія</span></div>
                         <ul class="space-y-3 mb-8 flex-1 text-sm text-theme-bg/90 font-medium">
@@ -507,7 +513,6 @@
                     <!-- PRO -->
                     <div class="bg-theme-light border border-theme-dark/10 p-6 sm:p-8 flex flex-col hover:border-theme-accent transition-colors rounded-sm shadow-sm" data-aos="fade-up" data-aos-delay="300">
                         <h3 class="font-display text-lg sm:text-xl font-bold mb-3 text-theme-darker">КАРТА PRO</h3>
-                        <!-- Оновлено опис -->
                         <p class="text-theme-dark/80 text-xs sm:text-sm mb-6 min-h-[3rem]">Пакет із 20 сесій. Максимальний розбір. Додатковий текстовий супровід. Вартість вказана за одну консультацію.</p>
                         <div class="font-display text-3xl font-black mb-6 text-theme-darker whitespace-nowrap">2&nbsp;500&nbsp;₴ <span class="text-sm font-sans font-normal text-theme-dark/50">/ сесія</span></div>
                         <ul class="space-y-3 mb-8 flex-1 text-sm text-theme-dark font-medium">
@@ -589,7 +594,7 @@
         </div>
     </div>
 
-    <!-- AOS Script -->
+    <!-- AOS Script та Відео Скрипт -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Ініціалізація анімацій
@@ -609,12 +614,14 @@
                 navContent.classList.replace('text-theme-bg', 'text-theme-darker');
                 navContent.querySelector('a').classList.replace('bg-black/20', 'bg-transparent');
                 navContent.querySelector('a').classList.replace('hover:bg-theme-accent', 'hover:bg-theme-darker');
+                navContent.querySelector('a').classList.replace('hover:text-theme-bg', 'hover:text-theme-bg');
                 navContent.querySelector('a').classList.replace('hover:border-theme-accent', 'hover:border-theme-darker');
             } else {
                 navbar.classList.remove('bg-[#FAF9F6]/95', 'backdrop-blur-md', 'shadow-sm');
                 navContent.classList.replace('text-theme-darker', 'text-theme-bg');
                 navContent.querySelector('a').classList.replace('bg-transparent', 'bg-black/20');
                 navContent.querySelector('a').classList.replace('hover:bg-theme-darker', 'hover:bg-theme-accent');
+                navContent.querySelector('a').classList.replace('hover:text-theme-bg', 'hover:text-theme-bg');
                 navContent.querySelector('a').classList.replace('hover:border-theme-darker', 'hover:border-theme-accent');
             }
         });
@@ -714,6 +721,31 @@
                 }, 2000);
             }, 1000);
         }
+
+        // Примусовий запуск відео на мобільних пристроях
+        document.addEventListener("DOMContentLoaded", function() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                video.muted = true;
+                video.setAttribute('playsinline', '');
+                
+                let playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Браузер заблокував автоплей:", error);
+                    });
+                }
+            });
+
+            document.body.addEventListener('touchstart', function() {
+                videos.forEach(video => {
+                    if (video.paused) {
+                        video.play();
+                    }
+                });
+            }, { once: true });
+        });
     </script>
 </body>
 </html>
