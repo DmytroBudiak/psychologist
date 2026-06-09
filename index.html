@@ -14,14 +14,15 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Дмитро Будяк | Психолог. Карта психіки">
     <meta property="og:description" content="Психологічна робота без медичного пафосу. Допомагаю виявити приховані сценарії, тригери та внутрішні конфлікти.">
-    <meta property="og:image" content="https://USERNAME.github.io/REPOSITORY/cover.jpg">
-    <meta property="og:url" content="https://USERNAME.github.io/REPOSITORY/">
+    <!-- Правильні посилання на ваш GitHub Pages -->
+    <meta property="og:image" content="https://sshhlkh-bit.github.io/psychologist/cover.jpg">
+    <meta property="og:url" content="https://sshhlkh-bit.github.io/psychologist/">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Дмитро Будяк | Психолог. Карта психіки">
     <meta name="twitter:description" content="Психологічна робота без медичного пафосу. Допомагаю виявити приховані сценарії, тригери та внутрішні конфлікти.">
-    <meta name="twitter:image" content="https://USERNAME.github.io/REPOSITORY/cover.jpg">
+    <meta name="twitter:image" content="https://sshhlkh-bit.github.io/psychologist/cover.jpg">
     
     <!-- Шрифти: Unbounded та Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,7 +73,7 @@
             overflow-x: hidden;
         }
 
-        /* ЕФЕКТ НАКЛАДАННЯ СТОРІНОК */
+        /* ЕФЕКТ НАКЛАДАННЯ СТОРІНОК (Повернуто як було) */
         .stack-wrapper { position: relative; }
         .stack-section {
             position: sticky; top: 0; min-height: 100svh; display: flex;
@@ -92,16 +93,14 @@
         }
 
         /* Z-index */
-        #sec-hero { z-index: 10; }
-        #sec-about { z-index: 9; }
-        #sec-pain { z-index: 8; }
-        #sec-results { z-index: 7; }
-        #sec-map { z-index: 6; }
-        #sec-edu { z-index: 5; }
-        #sec-reviews { z-index: 4; }
-        #sec-faq { z-index: 3; }
-        #sec-pricing { z-index: 2; }
-        #sec-cta { z-index: 1; }
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Секція CTA теж може бути на весь екран */
+        #sec-cta {
+             min-height: 100svh;
+        }
 
         /* Мітки над заголовками */
         .section-label {
@@ -143,6 +142,7 @@
         </div>
     </nav>
 
+    <!-- Обгортка тепер має звичайний display: flex -->
     <div class="stack-wrapper">
 
         <!-- 1. HERO (ФОНОВЕ ВІДЕО 1) -->
